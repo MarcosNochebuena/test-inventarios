@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @dealership %>
+
+<div>
+  <%= link_to "Edit this dealership", edit_dealership_path(@dealership) %> |
+  <%= link_to "Back to dealerships", dealerships_path %>
+
+  <%= button_to "Destroy this dealership", @dealership, method: :delete %>
+</div>
