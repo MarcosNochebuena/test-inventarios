@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   
-  # enum role: [:user, :admin]
+  enum role: { admin: 'admin', user: 'user' }
   validates :name, presence: true
   has_many :sales
   
@@ -15,11 +15,11 @@ class User < ApplicationRecord
 #  def set_default_role
 #     self.role = "user"
 #   end
-  def admin?
-    role == 'admin'
-  end
+  # def admin?
+  #   role == 'admin'
+  # end
 
-  def user?
-    role == 'user'
-  end
+  # def user?
+  #   role == 'user'
+  # end
 end

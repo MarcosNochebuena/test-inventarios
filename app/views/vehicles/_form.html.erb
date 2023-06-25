@@ -29,7 +29,7 @@
 
   <div class="mb-3">
     <%= form.label :type, class: "form-label" %>
-    <%= form.text_field :type, class: "form-control" %>
+    <%= form.text_field :vehicle_type, class: "form-control" %>
   </div>
 
   <div class="mb-3">
@@ -45,6 +45,14 @@
   <div class="mb-3">
     <%= form.label :condition, class: "form-label" %>
     <%= form.text_field :condition, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :dealership_ids, "Concesionarias" %><br>
+    <% Dealership.all.each do |dealership| %>
+      <%= check_box_tag "vehicle[dealership_ids][]", dealership.id, @vehicle.dealerships.include?(dealership) %>
+      <%= label_tag "vehicle_dealership_ids_#{dealership.id}", dealership.name %><br>
+    <% end %>
   </div>
 
   <div>

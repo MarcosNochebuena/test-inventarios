@@ -1,4 +1,5 @@
 class VehiclesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_vehicle, only: %i[ show edit update destroy ]
 
   # GET /vehicles or /vehicles.json
@@ -22,7 +23,7 @@ class VehiclesController < ApplicationController
   # POST /vehicles or /vehicles.json
   def create
     @vehicle = Vehicle.new(vehicle_params)
-
+    @vehicle.dealerships.replace(Dealership.where(id: params[:vehicle][:dealership_ids]))
     respond_to do |format|
       if @vehicle.save
         format.html { redirect_to vehicle_url(@vehicle), notice: "Vehicle was successfully created." }
@@ -65,6 +66,6 @@ class VehiclesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vehicle_params
-      params.require(:vehicle).permit(:make, :model, :year, :type, :price, :stock, :condition)
+      params.require(:vehicle).permit(:make, :model, :year, :vehicle_type, :price, :stock, :condition, dealership_ids: [])
     end
 end
