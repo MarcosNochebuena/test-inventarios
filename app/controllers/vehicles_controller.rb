@@ -4,8 +4,13 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles or /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    if params[:dealership_id].present?
+      @vehicles = Vehicle.joins(:dealerships_vehicles).where(dealerships_vehicles: { dealership_id: params[:dealership_id] })
+    else
+      @vehicles = Vehicle.all
+    end
   end
+  
 
   # GET /vehicles/1 or /vehicles/1.json
   def show

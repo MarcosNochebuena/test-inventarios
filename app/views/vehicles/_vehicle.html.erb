@@ -1,4 +1,4 @@
-<div id="<%= dom_id vehicle %>">
+<div id="<%= dom_id vehicle %>" class="col-3">
   <p>
     <strong>Make:</strong>
     <%= vehicle.make %>
@@ -33,5 +33,7 @@
     <strong>Condition:</strong>
     <%= vehicle.condition %>
   </p>
-
+    <p>
+      <%= link_to "Show this vehicle", vehicle, class: "btn btn-primary" %>
+    </p>
 </div>

@@ -9,6 +9,7 @@ class Ability
       can :manage, :all
     else
       can :read, [Vehicle]
+      can :purchase, Sale
     end
   end
 end

@@ -1,15 +1,24 @@
 <p style="color: green"><%= notice %></p>
-<div class="container">
-<h1>Vehicles</h1>
+<div class="container text-center">
 
-<div id="vehicles">
+<h1>Vehicles</h1>
+<% if current_user.admin? %>
+<%= link_to "New vehicle", new_vehicle_path, class: "btn btn-primary" %>
+<% else %>
+  <%= form_tag vehicles_path, method: :get do %>
+  <%= select_tag :dealership_id, options_for_select(Dealership.all.map { |d| [d.name, d.id] }), prompt: "Seleccionar concesionaria" %>
+  <%= submit_tag "Filtrar" %>
+<% end %>
+<% end %>
+
+
+<div id="vehicles" class="row align-items-start">
+
   <% @vehicles.each do |vehicle| %>
     <%= render vehicle %>
-    <p>
-      <%= link_to "Show this vehicle", vehicle %>
-    </p>
   <% end %>
+
 </div>
 
-<%= link_to "New vehicle", new_vehicle_path, class: "btn btn-primary" %>
+
 </div>
