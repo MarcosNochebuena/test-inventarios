@@ -1,0 +1,13 @@
+
+<div class="container">
+
+  <%= render @dealership %>
+
+    <div>
+      <%= link_to "Edit this dealership" , edit_dealership_path(@dealership), class: "btn btn-primary" %> |
+        <%= link_to "Back to dealerships" , dealerships_path, class: "btn btn-secondary" %>
+
+          <%= button_to "Destroy this dealership" , @dealership, method: :delete, class: "btn btn-danger mt-2" %>
+    </div>
+
+</div>

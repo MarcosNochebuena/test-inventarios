@@ -1,0 +1,39 @@
+<div id="<%= dom_id vehicle %>" class="col-3">
+  <p>
+    <strong>Make:</strong>
+    <%= vehicle.make %>
+  </p>
+
+  <p>
+    <strong>Model:</strong>
+    <%= vehicle.model %>
+  </p>
+
+  <p>
+    <strong>Year:</strong>
+    <%= vehicle.year %>
+  </p>
+
+  <p>
+    <strong>Type:</strong>
+    <%= vehicle.vehicle_type %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= vehicle.price %>
+  </p>
+
+  <p>
+    <strong>Stock:</strong>
+    <%= vehicle.stock %>
+  </p>
+
+  <p>
+    <strong>Condition:</strong>
+    <%= vehicle.condition.humanize %>
+  </p>
+    <p>
+      <%= link_to "Show this vehicle", vehicle, class: "btn btn-primary" %>
+    </p>
+</div>

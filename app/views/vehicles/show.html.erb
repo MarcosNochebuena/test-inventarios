@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="text-center">Vehicle: <%= @vehicle.make %></h3>
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>Make:</strong>
+          <%= @vehicle.make %>
+        </li>
+        <li class="list-group-item">
+          <strong>Model:</strong>
+          <%= @vehicle.model %>
+        </li>
+        <li class="list-group-item">
+          <strong>Year:</strong>
+          <%= @vehicle.year %>
+        </li>
+        <li class="list-group-item">
+          <strong>Type:</strong>
+          <%= @vehicle.vehicle_type %>
+        </li>
+        <li class="list-group-item">
+          <strong>Type:</strong>
+          <%= @vehicle.vehicle_type %>
+        </li>
+        <li class="list-group-item">
+          <strong>Price:</strong>
+          <%= @vehicle.price %>
+        </li>
+        <li class="list-group-item">
+          <strong>Stock:</strong>
+          <%= @vehicle.stock %>
+        </li>
+        <li class="list-group-item">
+          <strong>Condition:</strong>
+          <%= @vehicle.condition.humanize %>
+        </li>
+      </ul>
+  </div>
+
+  <div>
+    <%= link_to "Back to vehicles" , vehicles_path, class:"btn btn-secondary" %> |
+
+      <% if current_user.admin? %>
+        <%= link_to "Edit this vehicle" , edit_vehicle_path(@vehicle),  class:"btn btn-primary" %> 
+          <%= button_to "Destroy this vehicle" , @vehicle, method: :delete,  class:"btn btn-danger" %>
+      <%  else  %>
+      <%= button_to "Buy", purchase_vehicle_path(@vehicle), method: :post, class: "btn btn-success" %>
+      <% end %>
+  </div>
+
+</div>
