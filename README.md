@@ -1,4 +1,3 @@
-
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -6,20 +5,29 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+- Ruby version
 
-* System dependencies
+* Ruby [3.1.1]
+* Rails [7.0.4] ~> installed with Ruby version 3.1.1
 
-* Configuration
+- System dependencies
 
-* Database creation
+- Configuration
 
-* Database initialization
+- Database creation
+  Run the following commands to create and setup the database.
 
-* How to run the test suite
+    ```ruby
+    rails db:create
+    rails db:setup
+    ```
 
-* Services (job queues, cache servers, search engines, etc.)
+- Database initialization
 
-* Deployment instructions
+- How to run the test suite
 
-* ...
+- Services (job queues, cache servers, search engines, etc.)
+
+- Deployment instructions
+
+- ...

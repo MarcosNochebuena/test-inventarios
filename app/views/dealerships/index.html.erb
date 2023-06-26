@@ -1,14 +1,13 @@
-<p style="color: green"><%= notice %></p>
 
+
+<div id="dealerships" class="container">
 <h1>Dealerships</h1>
-
-<div id="dealerships">
+<%= link_to "New dealership", new_dealership_path, class: "btn btn-primary" %>
   <% @dealerships.each do |dealership| %>
     <%= render dealership %>
     <p>
-      <%= link_to "Show this dealership", dealership %>
+      <%= link_to "Show this dealership", dealership, class:"btn btn-info" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New dealership", new_dealership_path, class: "btn btn-primary" %>

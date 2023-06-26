@@ -12,14 +12,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% if @sales.present? %>
+					<% if @sales.empty? %>
+						<p><strong>No data</strong></p>
+					<% else %>
 						<% @sales.each do |sale| %>
 							<tr>
 								<%= render sale %>
 							</tr>
 						<% end %>
-					<% else %>
-						<h3>No data</h3>
 					<% end %>
 				</tbody>
 			</table>
